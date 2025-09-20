@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -26,6 +27,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import ru.pyroman.masik.feature.wishlist.view.WishlistView
 
 
 @Composable
@@ -33,11 +35,19 @@ fun TabsView(modifier: Modifier = Modifier) {
     var selectedTab by remember { mutableStateOf(Tab.Main) }
 
     Box(
-        modifier = modifier,
+        modifier = modifier
+            .fillMaxHeight(),
     ) {
+
+        when (selectedTab) {
+            Tab.Main -> WishlistView()
+            Tab.Notes -> WishlistView()
+            Tab.Wishlist -> WishlistView()
+        }
 
         Row(
             modifier = Modifier
+                .align(Alignment.BottomCenter)
                 .padding(bottom = 48.dp)
                 .width(200.dp)
                 .height(60.dp)

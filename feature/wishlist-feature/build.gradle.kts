@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "ru.pyroman.masik.feature.tabs"
+    namespace = "ru.pyroman.masik.feature.wishlist"
     compileSdk = 35
     defaultConfig {
         minSdk = 24
@@ -27,6 +27,4 @@ dependencies {
     debugImplementation(libs.androidx.compose.uitooling)
     implementation(libs.androidx.compose.uitoolingpreview)
     implementation(libs.androidx.activity.compose)
-
-    implementation(project(":feature:wishlist-feature"))
 }
