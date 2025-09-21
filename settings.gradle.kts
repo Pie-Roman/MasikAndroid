@@ -24,12 +24,18 @@ include(":app")
 
 include(":common")
 
-include(":data:note-data")
+include(":data:common-data")
 
-include(":domain:note-domain")
+include(":data:note-data:note-common-data")
+include(":data:note-data:note-list-data")
+
+include(":domain:note-domain:note-common-domain")
+include(":domain:note-domain:note-list-domain")
 
 include(":feature:main-feature")
-include(":feature:note-feature")
+
+include(":feature:note-feature:note-list-feature")
+
 include(":feature:order-taxi-feature")
 include(":feature:photo-feature")
 include(":feature:tabs-feature")

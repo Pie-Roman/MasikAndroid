@@ -28,6 +28,7 @@ dependencies {
     implementation(libs.androidx.compose.uitoolingpreview)
     implementation(libs.androidx.activity.compose)
 
+    implementation(project(":feature:note-feature:note-list-feature"))
     implementation(project(":feature:wishlist-feature"))
 
     implementation(libs.dagger)

@@ -1,6 +1,14 @@
 package ru.pyroman.masik.common
 
-interface Processor<Intent> {
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
 
-    fun process(intent: Intent)
+abstract class Processor<Intent> {
+
+    val intentFlow: SharedFlow<Intent>
+        get() = _intentFlow
+
+    protected val _intentFlow: MutableSharedFlow<Intent> = MutableSharedFlow()
+
+    abstract suspend fun process(intent: Intent)
 }

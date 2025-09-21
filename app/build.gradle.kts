@@ -2,7 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.kapt)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.dagger.hilt.android)
 }
 
 android {
@@ -45,8 +46,17 @@ dependencies {
     implementation(libs.androidx.compose.uitoolingpreview)
     implementation(libs.androidx.compose.material3)
 
-    implementation(libs.dagger)
-    kapt(libs.dagger.compiler)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
+
+    implementation(project(":common"))
+
+    implementation(project(":data:note-data:note-common-data"))
+    implementation(project(":data:note-data:note-list-data"))
+
+    implementation(project(":domain:note-domain:note-common-domain"))
+    implementation(project(":domain:note-domain:note-list-domain"))
 
     implementation(project(":feature:tabs-feature"))
+    implementation(project(":feature:note-feature:note-list-feature"))
 }

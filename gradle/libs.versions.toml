@@ -2,7 +2,9 @@
 agp = "8.10.0"
 kotlin = "2.0.21"
 
-ksp = "1.9.0-1.0.13"
+hilt = "2.51"
+hilt-navigation-compose = "1.3.0"
+ksp = "2.0.21-1.0.26"
 lifecycle = "2.7.0"
 compose = "1.9.0"
 compose-bom = "2024.09.00"
@@ -26,6 +28,7 @@ androidx-compose-uitoolingpreview = { module = "androidx.compose.ui:ui-tooling-p
 androidx-compose-material-icons = { module = "androidx.compose.material:material-icons-extended", version.ref = "compose" }
 
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
+androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt-navigation-compose" }
 
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
@@ -41,6 +44,9 @@ kotlinx-corountines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutin
 dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
 
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
@@ -48,4 +54,4 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-
+dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }

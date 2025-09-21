@@ -17,5 +17,5 @@ android {
 }
 
 dependencies {
-
+    api(libs.kotlinx.corountines.android)
 }

@@ -27,6 +27,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import ru.pyroman.masik.feature.note.list.view.NoteListView
 import ru.pyroman.masik.feature.wishlist.view.WishlistView
 
 
@@ -41,7 +42,7 @@ fun TabsView(modifier: Modifier = Modifier) {
 
         when (selectedTab) {
             Tab.Main -> WishlistView()
-            Tab.Notes -> WishlistView()
+            Tab.Notes -> NoteListView()
             Tab.Wishlist -> WishlistView()
         }
 

@@ -10,11 +10,14 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.internal.GeneratedComponent
 import ru.pyroman.masik.activity.di.MainActivityComponent
-import ru.pyroman.masik.feature.tabs.view.TabsView
 import ru.pyroman.masik.activity.ui.theme.MasikTheme
 import ru.pyroman.masik.application.MasikApplication
+import ru.pyroman.masik.feature.tabs.view.TabsView
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private lateinit var activityComponent: MainActivityComponent
