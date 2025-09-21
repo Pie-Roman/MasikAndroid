@@ -29,4 +29,7 @@ dependencies {
     implementation(libs.androidx.activity.compose)
 
     implementation(project(":feature:wishlist-feature"))
+
+    implementation(libs.dagger)
+    kapt(libs.dagger.compiler)
 }

@@ -27,4 +27,7 @@ dependencies {
     debugImplementation(libs.androidx.compose.uitooling)
     implementation(libs.androidx.compose.uitoolingpreview)
     implementation(libs.androidx.activity.compose)
+
+    implementation(libs.dagger)
+    kapt(libs.dagger.compiler)
 }

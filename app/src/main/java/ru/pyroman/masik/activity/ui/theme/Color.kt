@@ -1,4 +1,4 @@
-package ru.pyroman.masik.ui.theme
+package ru.pyroman.masik.activity.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
