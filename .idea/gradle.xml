@@ -20,10 +20,12 @@
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/domain/note-domain" />
             <option value="$PROJECT_DIR$/domain/note-domain/note-common-domain" />
+            <option value="$PROJECT_DIR$/domain/note-domain/note-entry-domain" />
             <option value="$PROJECT_DIR$/domain/note-domain/note-list-domain" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/main-feature" />
             <option value="$PROJECT_DIR$/feature/note-feature" />
+            <option value="$PROJECT_DIR$/feature/note-feature/note-entry-feature" />
             <option value="$PROJECT_DIR$/feature/note-feature/note-list-feature" />
             <option value="$PROJECT_DIR$/feature/order-taxi-feature" />
             <option value="$PROJECT_DIR$/feature/photo-feature" />
