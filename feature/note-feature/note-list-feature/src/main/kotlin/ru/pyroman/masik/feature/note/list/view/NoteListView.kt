@@ -45,7 +45,7 @@ fun NoteListView(
     viewModel: NoteListViewModel = viewModel(),
 ) {
 
-    val state by viewModel.state.collectAsState()
+    val viewState by viewModel.state.collectAsState()
 
     LaunchedEffect(Unit) {
         viewModel.subscribeToIntents()
@@ -79,20 +79,20 @@ fun NoteListView(
                     }
                 }
             ) {
-                when (val s = state) {
+                when (val state = viewState) {
                     is NoteListState.Idle -> NoteListIdleView {
                         viewModel.send(NoteListIntent.Launch)
                     }
                     is NoteListState.Loading -> NoteListLoadingView()
                     is NoteListState.Loaded -> NoteListLoadedView(
-                        noteList = s.noteList,
+                        noteList = state.noteList,
                         onUpdate = { note ->
 
                         },
                     )
 
                     is NoteListState.Error -> NoteListErrorView(
-                        message = s.message,
+                        message = state.message,
                         onRetry = { viewModel.send(NoteListIntent.Load) }
                     )
                 }

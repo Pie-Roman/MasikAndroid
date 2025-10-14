@@ -18,8 +18,8 @@ internal class NoteListProcessor @Inject constructor(
                     launch {
                         try {
                             repository.launch()
-                            _intentFlow.emit(
-                                NoteListIntent.Load
+                            process(
+                                intent = NoteListIntent.Load
                             )
                         } catch (error: Throwable) {
                             _intentFlow.emit(
