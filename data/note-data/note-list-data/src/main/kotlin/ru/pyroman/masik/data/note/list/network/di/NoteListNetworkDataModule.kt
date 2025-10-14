@@ -16,25 +16,5 @@ interface NoteListNetworkDataModule {
         internal fun provideNoteListNetworkApi(): NoteListNetworkApi {
             return NoteListNetworkApi.build()
         }
-
-        @Provides
-        internal fun provideNoteListNetworkDataSource(
-            api: NoteListNetworkApi
-        ): NoteListNetworkDataSource {
-            return NoteListNetworkDataSource(
-                api = api,
-            )
-        }
-
-        @Provides
-        internal fun provideNoteListNetworkRepositoryImpl(
-            dataSource: NoteListNetworkDataSource,
-            mapper: NoteListNetworkMapper,
-        ): NoteListNetworkRepository {
-            return NoteListNetworkRepository(
-                dataSource = dataSource,
-                mapper = mapper,
-            )
-        }
     }
 }

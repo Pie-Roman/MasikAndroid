@@ -4,8 +4,9 @@ import ru.pyroman.masik.data.note.list.network.datasource.NoteListNetworkDataSou
 import ru.pyroman.masik.data.note.list.network.dto.NoteListLaunchNetworkDto
 import ru.pyroman.masik.data.note.list.network.mapper.NoteListNetworkMapper
 import ru.pyroman.masik.domain.note.list.model.NoteList
+import javax.inject.Inject
 
-internal class NoteListNetworkRepository(
+internal class NoteListNetworkRepository @Inject constructor(
     private val mapper: NoteListNetworkMapper,
     private val dataSource: NoteListNetworkDataSource,
 ) {

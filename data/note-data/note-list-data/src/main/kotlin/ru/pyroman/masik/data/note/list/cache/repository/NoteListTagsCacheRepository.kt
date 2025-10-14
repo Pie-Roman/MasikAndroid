@@ -3,8 +3,11 @@ package ru.pyroman.masik.data.note.list.cache.repository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import ru.pyroman.masik.domain.note.common.model.NoteTag
+import javax.inject.Inject
+import javax.inject.Singleton
 
-internal class NoteListTagsCacheRepository {
+@Singleton
+internal class NoteListTagsCacheRepository @Inject constructor() {
 
     private val tags: MutableStateFlow<List<NoteTag>> = MutableStateFlow(emptyList())
 
