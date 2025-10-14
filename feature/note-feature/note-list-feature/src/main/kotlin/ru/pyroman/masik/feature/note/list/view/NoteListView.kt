@@ -3,15 +3,11 @@ package ru.pyroman.masik.feature.note.list.view
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Warning
@@ -33,9 +29,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import ru.pyroman.masik.domain.note.common.model.Note
 import ru.pyroman.masik.domain.note.list.intent.NoteListIntent
-import ru.pyroman.masik.domain.note.list.model.NoteList
 import ru.pyroman.masik.feature.note.list.state.NoteListState
 import ru.pyroman.masik.feature.note.list.viewmodel.NoteListViewModel
 
@@ -117,51 +111,6 @@ private fun NoteListLoadingView() {
         contentAlignment = Alignment.Center
     ) {
         CircularProgressIndicator()
-    }
-}
-
-@Composable
-private fun NoteListLoadedView(
-    noteList: NoteList,
-    onUpdate: (Note) -> Unit,
-) {
-    if (noteList.items.isEmpty()) {
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ) {
-            Text("Список дел пуст", color = Color.Gray, style = MaterialTheme.typography.titleMedium)
-        }
-    } else {
-        Row(
-            modifier = Modifier
-                .verticalScroll(rememberScrollState())
-                .padding(top = 8.dp)
-        ) {
-            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                noteList.items.withIndex()
-                    .filter { it.index % 2 == 0 }
-                    .forEach { (index, note) ->
-                        NoteListItemView(
-                            note = note,
-                            heightOffset = index % 3,
-                            onUpdateTap = { onUpdate(note) },
-                        )
-                    }
-            }
-            Spacer(Modifier.width(12.dp))
-            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                noteList.items.withIndex()
-                    .filter { it.index % 2 != 0 }
-                    .forEach { (index, note) ->
-                        NoteListItemView(
-                            note = note,
-                            heightOffset = index % 3,
-                            onUpdateTap = { onUpdate(note) },
-                        )
-                    }
-            }
-        }
     }
 }
 

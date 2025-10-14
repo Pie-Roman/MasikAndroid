@@ -2,11 +2,14 @@ package ru.pyroman.masik.feature.note.list.reducer
 
 import ru.pyroman.masik.common.Reducer
 import ru.pyroman.masik.domain.note.list.intent.NoteListIntent
-import ru.pyroman.masik.domain.note.list.model.NoteList
+import ru.pyroman.masik.feature.note.list.formatter.NoteListFormatter
 import ru.pyroman.masik.feature.note.list.state.NoteListState
+import ru.pyroman.masik.feature.note.list.vo.NoteListVo
 import javax.inject.Inject
 
-internal class NoteListReducer @Inject constructor(): Reducer<NoteListState, NoteListIntent> {
+internal class NoteListReducer @Inject constructor(
+    private val noteListFormatter: NoteListFormatter,
+): Reducer<NoteListState, NoteListIntent> {
 
     override fun reduce(currentState: NoteListState, intent: NoteListIntent): NoteListState {
         return when (intent) {
@@ -17,14 +20,19 @@ internal class NoteListReducer @Inject constructor(): Reducer<NoteListState, Not
                     )
                 } else {
                     NoteListState.Loading(
-                        noteList = NoteList(tags = emptyList(), items = emptyList())
+                        noteList = NoteListVo(
+                            tags = emptyList(),
+                            leftColumn = emptyList(),
+                            rightColumn = emptyList(),
+                        )
                     )
                 }
             }
 
             is NoteListIntent.ShowLoaded -> {
+                val noteList = noteListFormatter.format(intent.noteList)
                 NoteListState.Loaded(
-                    noteList = intent.noteList,
+                    noteList = noteList,
                 )
             }
 

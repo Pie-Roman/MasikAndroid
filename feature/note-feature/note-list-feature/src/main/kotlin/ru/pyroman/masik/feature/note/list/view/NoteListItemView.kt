@@ -23,13 +23,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import ru.pyroman.masik.domain.note.common.model.Note
-import androidx.core.graphics.toColorInt
+import ru.pyroman.masik.feature.note.list.vo.NoteListItemVo
 
 @Composable
 fun NoteListItemView(
-    note: Note,
-    heightOffset: Int,
+    note: NoteListItemVo,
     onUpdateTap: () -> Unit,
 ) {
 
@@ -38,9 +36,9 @@ fun NoteListItemView(
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height((120 + heightOffset * 40).dp)
+            .height((120 + note.heightOffset * 40).dp)
             .clip(RoundedCornerShape(24.dp))
-            .background(backgroundColor(note))
+            .background(note.backgroundColor)
     ) {
         Text(
             text = note.body.title,
@@ -64,26 +62,4 @@ fun NoteListItemView(
             )
         }
     }
-}
-
-@Composable
-private fun backgroundColor(note: Note): Color {
-    val firstTag = note.body.tags.firstOrNull()
-    firstTag?.color?.let { hex ->
-        return try {
-            Color(hex.toColorInt())
-        } catch (_: IllegalArgumentException) {
-            Color.LightGray
-        }
-    }
-
-    val colors = listOf(
-        Color(0xFFEEE6FF),
-        Color(0xFFFFEDF2),
-        Color(0xFFFFF7E6),
-        Color(0xFFE6FFF2),
-        Color(0xFFFFFAE6),
-        Color(0xFFD9F2FF)
-    )
-    return colors.random()
 }
